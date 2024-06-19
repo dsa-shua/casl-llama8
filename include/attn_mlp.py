@@ -754,7 +754,7 @@ class LlamaDecoderLayer(nn.Module):
             )
         
         # Make sure to move this one out
-        with open(f"/root/casl/llama/results/attn.txt", "w") as file:
+        with open(f"/root/casl/llama/results/attn.txt", "a") as file:
             file.write(attn_prof.key_averages().table(sort_by="cuda_time_total"))
         
         hidden_states = residual + hidden_states
@@ -766,7 +766,7 @@ class LlamaDecoderLayer(nn.Module):
             hidden_states = self.mlp(hidden_states)
             hidden_states = residual + hidden_states
 
-        with open(f"/root/casl/llama/results/mlp.txt", "w") as file:
+        with open(f"/root/casl/llama/results/mlp.txt", "a") as file:
             file.write(mlp_prof.key_averages().table(sort_by="cuda_time_total"))
         
         outputs = (hidden_states,)
