@@ -1,0 +1,33 @@
+
+This docker file contains all the necessary files to run LLAMA3 8B model 
+in a docker container using the Lab's 4090 GPU.
+
+To run the experiment to replicate figure 4C of the paper, run:
+
+run.sh
+
+in the /root/casl/llama directory. This will automatically run
+all commands to set up the experiment including generation of 
+the output figure and csv data file.
+
+All the CSV and images generated will be located in 
+/root/casl/llama/results/{img/ or data/} directories.
+
+You can use VSCODE then attach to the container to download the 
+image file. 
+
+scp command may not run as this dockerfile is not built with exposed ports
+for external communication. You can add that feature to the build.sh file
+but it is not tested and is not guaranteed that the container will run 
+properly. 
+
+
+'include' directory includes the base and modified source codes for LLAMA model. 
+
+1. base.py	- absolute base source code with no modifications. 
+2. attn_mlp.py	- this includes torch.profiler for attention and mlp layers. (Replicate Figure 4C)
+3. block.py	- includes torch.profiler for the whole block. (Replicate Figure 2) [Not impelemented!]
+
+'util' directory includes the proces.py file for processing the generated 
+txt files for the generation of graphs and csv files. These files can be
+located in /root/casl/results/{img/ or data/} directories.
