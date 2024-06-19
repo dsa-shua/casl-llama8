@@ -13,9 +13,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # This should match the array from run.sh!
-batch_list  = [1,2,4]
+batch_list  = [1,2,4,8,16,32,64,128,256]
 input_list  = [1]
-output_list = [4]
+output_list = [256]
 
 
 for output_size in output_list:
