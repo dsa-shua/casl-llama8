@@ -10,7 +10,7 @@
 
 p_batch_sizes=(1 2 4 8 16 32 64 128 256)
 p_input_sizes=(1) # Lets keep it short for now.
-p_output_sizes=(256) # Doing shorter outputs does not make sense.
+p_output_sizes=(128) # Doing shorter outputs does not make sense.
 
 # Figure 2
 t_batch_sizes=(1 2 4 8 16)
